@@ -16,7 +16,7 @@ def main():
             'https://www.googleapis.com/auth/drive']
 
     #jsonファイルを指定
-    credentials = ServiceAccountCredentials.from_json_keyfile_name('stockrprice-0ca98fe01516.json', scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('', scope)
 
     # 認証
     gc = gspread.authorize(credentials)
