@@ -1,0 +1,23 @@
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from bs4 import BeautifulSoup
+import requests
+import time
+import slackweb
+
+
+URL = 'https://kabutan.jp/stock/?code=7351'
+
+    # スクレイピング実行
+        #対象URLにリクエスト
+req = requests.get(URL)
+time.sleep(2)
+
+# 文字コードをUTF-8に変換し、html取得
+soup = BeautifulSoup(req.text, 'html.parser')
+
+# tagとclassを指定して要素を取り出す
+company_name = soup.select('h2:contains("会社情報") ~ h3')
+conpany_name.replace("<h3>" "<\h3>", "")
+# company_name = soup.find('div', class='topicpath').find('span', intemprop_='name').text
+print(company_name)
